@@ -1,0 +1,276 @@
+*{
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------- root---------------------*/
+:root{
+  --primary-bg: #212529;
+  --font_white: white;
+  --hover-color: #1c7ed6;
+}
+
+/* ------------------- main container---------------------*/
+
+.main_container{
+  width: 100%;
+  min-height: 90vh;
+  background: var(--primary-bg);
+}
+
+.navigation_bar{
+  width: 60%;
+  margin: 0 auto;
+  min-height: 100px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation_bar img {
+  width: 70px;
+}
+.nav_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav_logo h1{
+  color: var(--font_white);
+  font-weight: bolder;
+}
+.nav_menu ul {
+  display: flex;
+  align-items: center;
+}
+.nav_menu ul li{
+  list-style-type: none;
+  margin-right: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  position: relative;
+}
+
+.nav_menu ul li::after{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: '';
+  width: 0;
+  height: 5px;
+  background: var(--hover-color);
+  transition:all 0.5s ease;
+  border-radius: 40px;
+}
+.nav_menu ul li:hover a{
+  color: var(--hover-color);
+}
+.nav_menu ul li:hover::after{
+  width: 100%;
+}
+.nav_menu ul li a{
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+/* ------------------- mail container---------------------*/
+
+.mail_container{
+  width: 80%;
+  margin: 0 auto;
+  min-height: 200px;
+  border-radius: 30px;
+  border: 3px dotted gray;
+}
+
+.mail_container h3.mailcontainer_heading{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--font_white);
+  margin: 1rem 0;
+}
+
+.email_box{
+  width: 60%;
+  height: 50px;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  border: 2px dotted gray;
+  border-radius: 60px;
+}
+.email_box input{
+  font-size: 1.2rem;
+  color: white;
+  background: transparent;
+  height: 40px;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  outline: none;
+}
+
+.email_box span {
+  font-size: 1.5rem;
+  color: var(--font_white);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+/* ------------------- main contaienr tools---------------------*/
+
+.mail_container__tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mail_container__tools ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1.5rem;
+  color: var(--font_white);
+}
+.mail_container__tools ul li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mail_container__tools ul li span{
+  padding: 0.5rem;
+}
+
+.mail_container__tools ul li p.counter_time{
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background: var(--font_white);
+  color: var(--primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+/* ------------------- mail tools end---------------------*/
+
+/* ------------------- mail inbox---------------------*/
+
+.mail_inbox {
+  width: 70%;
+  margin: 1rem auto;
+  background: #343a40;
+  border-radius: 5px;
+  min-height: 500px;
+}
+
+.mailinbox_heading {
+  width: 100%;
+  min-height: 50px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  flex-basis: 3;
+  color: white;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #eee;
+}
+
+.mailinbox_heading span {
+  margin-right: 1rem;
+}
+
+.mailinbox_heading div:first-child{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid #eee;
+  max-width: 340px;
+  width: 340px;
+  box-sizing: border-box;
+}
+.mailinbox_heading div:last-child{
+  flex: 2;
+}
+
+.mail_text{
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 3;
+  height: 100%;
+}
+.sender{
+  min-height: 200px;
+  height: 100%;
+  border-right: 2px solid #eee;
+  max-width: 340px;
+  width: 340px;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+}
+
+.mail_information{
+  min-height: 200px;
+  flex: 2;
+  padding: 1.5rem;
+}
+
+.sender > div {
+  height: 40px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: lightgray;
+  padding: 5px;
+  border-radius: 3px;
+  column-gap: 1rem;
+
+}
+.sender > div p{
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.sender > div img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+
+.mail_message{
+  width: 100%;
+  min-height: 220px;
+  background: #868e96;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.mail_message p{
+  font-weight: bold;
+}
+
+.mail_message span{
+  font-size: 1rem;
+  margin-top: 1rem;
+  display: block;
+}
