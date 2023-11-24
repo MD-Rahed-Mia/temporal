@@ -156,6 +156,12 @@
   justify-content: center;
   margin-right: 1rem;
   cursor: pointer;
+  
+  transition: color 300ms ease-in-out;
+}
+
+.email_box span:hover{
+  color: var(--hover-color);
 }
 
 
@@ -200,11 +206,16 @@
 .mail_container__tools ul li button {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
+.mail_container__tools ul li button:hover span{
+  color: var(--hover-color);
+}
 .mail_container__tools ul li button span {
   padding: 0.5rem;
   color: white;
+  transition: color 300ms ease-in-out;
 }
 
 .mail_container__tools ul li p.counter_time {
@@ -607,13 +618,16 @@ footer ul {
   list-style-type: none;
 }
 
-footer ul li {
+footer ul li a{
   padding: 0.5rem 2rem;
   cursor: pointer;
   transition: color 350ms ease-in-out;
+  color: white;
+  text-transform: capitalize;
+  text-decoration: none;
 }
 
-footer ul li:hover {
+footer ul li a:hover {
   color: var(--hover-color);
   font-weight: bold;
 }
@@ -627,7 +641,8 @@ footer ul li:hover {
     width: 80%;
   }
 
-  footer ul li {
+  footer ul li a{
     padding: 0.5rem;
+    font-size: 14px;
   }
 }
