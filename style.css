@@ -89,7 +89,9 @@
 
   .main_container {
     padding-bottom: 2rem;
+    padding: 10px;
   }
+
   .navigation_bar {
     flex-direction: column;
     width: 100%;
@@ -158,9 +160,18 @@
 
 
 @media screen and (max-width: 650px) {
+
   .email_box {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+  }
+
+  .mail_container {
+    width: 95%;
+    min-width: 100%;
+    min-height: 200px;
+    border: 3px dotted gray;
+    padding: 10px;
   }
 }
 
@@ -206,13 +217,14 @@
   .mail_container__tools {
     font-size: 0.8rem;
     margin-top: 2rem;
+    width: 100%;
   }
 
   .mail_container__tools ul {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     align-items: left;
-
+    column-gap: 0;
   }
 }
 
@@ -344,15 +356,23 @@
 
   .mail_inbox {
     background: transparent;
+
   }
 
   .mail_text {
+    width: 100%;
     display: grid;
     grid-template-columns: auto;
+    padding: 0;
   }
-
   .mailinbox_heading {
     display: none;
+  }
+  .mail_information p, span{
+    font-size: 14px;
+  }
+  .sender{
+    border: none;
   }
 }
 
@@ -526,7 +546,7 @@
 }
 
 @media screen and (max-width: 650px) {
-  .tempblog_cards{
+  .tempblog_cards {
     display: grid;
     grid-template-columns: auto;
     grid-gap: 1.5rem;
@@ -567,7 +587,7 @@ footer ul li:hover {
 }
 
 @media screen and (max-width: 650px) {
-  footer{
+  footer {
     width: 100%;
   }
 
@@ -575,7 +595,7 @@ footer ul li:hover {
     width: 80%;
   }
 
-  footer ul li{
+  footer ul li {
     padding: 0.5rem;
   }
 }
