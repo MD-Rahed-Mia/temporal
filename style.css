@@ -434,7 +434,7 @@
 
 
 @media screen and (max-width: 650px) {
-  .social_box {}
+  
 }
 
 /* ------------------- temp mail starts---------------------*/
@@ -482,6 +482,7 @@
   list-style-type: none;
   position: relative;
   cursor: pointer;
+  user-select: none;
 }
 
 .temp_mail_faq ul li:last-child {
