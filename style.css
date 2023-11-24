@@ -85,6 +85,27 @@
   transition: color 0.3s;
 }
 
+@media screen and (max-width: 650px) {
+
+  .main_container {
+    padding-bottom: 2rem;
+  }
+  .navigation_bar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav_menu {
+    width: 100%;
+    padding-left: 1rem;
+  }
+
+  .nav_menu ul li {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
+
 /* ------------------- mail container---------------------*/
 
 .mail_container {
@@ -135,6 +156,14 @@
   cursor: pointer;
 }
 
+
+@media screen and (max-width: 650px) {
+  .email_box {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
 /* ------------------- main contaienr tools---------------------*/
 
 .mail_container__tools {
@@ -171,6 +200,20 @@
   align-items: center;
   justify-content: center;
   margin-left: 10px;
+}
+
+@media screen and (max-width: 650px) {
+  .mail_container__tools {
+    font-size: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .mail_container__tools ul {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: left;
+
+  }
 }
 
 /* ------------------- mail tools end---------------------*/
@@ -264,6 +307,7 @@
   color: var(--font_white);
   border-radius: 3px;
   column-gap: 1rem;
+  cursor: pointer;
 }
 
 .sender>div p {
@@ -296,6 +340,22 @@
   display: block;
 }
 
+@media screen and (max-width: 650px) {
+
+  .mail_inbox {
+    background: transparent;
+  }
+
+  .mail_text {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+  .mailinbox_heading {
+    display: none;
+  }
+}
+
 /* ------------------- mail inobox ends here---------------------*/
 
 /* ------------------- social media starts here---------------------*/
@@ -321,6 +381,11 @@
   width: 40px;
 }
 
+
+@media screen and (max-width: 650px) {
+  .social_box {}
+}
+
 /* ------------------- temp mail starts---------------------*/
 
 .temp_mail_info {
@@ -334,6 +399,13 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 650px) {
+  .temp_mail_info {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
 /* ------------------- faq starts here---------------------*/
 .temp_mail_faq {
   width: 50%;
@@ -344,6 +416,7 @@
 .temp_mail_faq h1 {
   text-align: center;
   color: #212529;
+  font-weight: 500;
 }
 
 .temp_mail_faq ul {
@@ -360,21 +433,22 @@
   cursor: pointer;
 }
 
-.temp_mail_faq ul li:last-child{
-  
+.temp_mail_faq ul li:last-child {
+
   border-bottom: 1px solid #343a40;
 }
 
-.temp_mail_faq ul li img{
+.temp_mail_faq ul li img {
   position: absolute;
   top: 5px;
   right: 1rem;
   height: 30px;
   width: 30px;
+  rotate: -90deg;
 }
 
-.temp_mail_faq ul li img.active{
-  rotate: 180deg;
+.temp_mail_faq ul li img.active {
+  rotate: 0deg;
 }
 
 .temp_mail_faq ul li h3 {
@@ -387,6 +461,121 @@
   display: none;
 }
 
-.temp_mail_faq ul li p.active{
+.temp_mail_faq ul li p.active {
   display: block;
+}
+
+
+
+
+@media screen and (max-width: 650px) {
+  .temp_mail_faq {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .temp_mail_faq h3 {
+    font-size: 14px;
+  }
+
+  .temp_mail_faq ul li img {
+    right: 5px;
+  }
+}
+
+/* ------------------- temp faq ends here---------------------*/
+
+/* ------------------- temp blogs starts here---------------------*/
+
+.temp_blog {
+  width: 70%;
+  margin: 1rem auto;
+}
+
+.temp_blog h1 {
+  color: #212529;
+  font-weight: 500;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.tempblog_cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 2rem;
+}
+
+.tempblog_card {
+  width: 100%;
+  min-height: 180px;
+  box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.2), 2px 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.tempblog_card h3 {
+  text-align: center;
+  color: #212529;
+}
+
+.tempblog_card p {
+  font-size: 13px;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 650px) {
+  .tempblog_cards{
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 1.5rem;
+  }
+}
+
+/* ------------------- temp blogs ends here---------------------*/
+
+/* ------------------- footer starts here---------------------*/
+
+footer {
+  margin-top: 3rem;
+  width: 100%;
+  min-height: 80px;
+  background: #212529;
+  color: var(--font_white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+
+footer ul li {
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  transition: color 350ms ease-in-out;
+}
+
+footer ul li:hover {
+  color: var(--hover-color);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 650px) {
+  footer{
+    width: 100%;
+  }
+
+  footer ul {
+    width: 80%;
+  }
+
+  footer ul li{
+    padding: 0.5rem;
+  }
 }
