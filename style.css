@@ -197,8 +197,14 @@
   justify-content: center;
 }
 
-.mail_container__tools ul li span {
+.mail_container__tools ul li button {
+  background: none;
+  border: none;
+}
+
+.mail_container__tools ul li button span {
   padding: 0.5rem;
+  color: white;
 }
 
 .mail_container__tools ul li p.counter_time {
@@ -273,8 +279,8 @@
 }
 
 .mail_text {
-  width: 100%;
   padding: 0.5rem;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -301,6 +307,7 @@
 .sender::-webkit-scrollbar {
   width: 0;
 }
+
 
 .mail_information {
   min-height: 200px;
@@ -346,34 +353,58 @@
   font-weight: bold;
 }
 
-.mail_message span {
-  font-size: 1rem;
-  margin-top: 1rem;
-  display: block;
+.mail_message p:last-child {
+  margin-top: 1.5rem;
 }
 
+
 @media screen and (max-width: 650px) {
-
   .mail_inbox {
-    background: transparent;
+    background: #343a40;
+    width: 100%;
+    padding-top: 1.5rem;
+  }
 
+  .mailinbox_heading {
+    display: none;
   }
 
   .mail_text {
     width: 100%;
-    display: grid;
-    grid-template-columns: auto;
+    display: flex;
+    flex-basis: 2;
+    flex-direction: column;
     padding: 0;
   }
-  .mailinbox_heading {
-    display: none;
+
+  .mail_message p,
+  span {
+    font-size: 13px;
   }
-  .mail_information p, span{
-    font-size: 14px;
+
+  .mail_message p:last-child {
+    margin-top: 1.5rem;
   }
-  .sender{
-    border: none;
+
+  .sender {
+    flex: 1;
+    border-right: 0;
+    background-repeat: no-repeat;
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(255, 255, 255, 0.8);
+    max-height: 360px;
+    height: 360px;
   }
+
+  .sender>div {
+    background: none;
+    border-bottom: 1px solid #868e96;
+  }
+
+  .mail_message {
+    flex: 1;
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(255, 255, 255, 0.8);
+  }
+
 }
 
 /* ------------------- mail inobox ends here---------------------*/
