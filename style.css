@@ -115,7 +115,7 @@
 .sign_up {
   background: white;
   min-height: 600px;
-  min-width: 500px;
+  width: 500px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -224,6 +224,12 @@
 .sign_up_overlay.active {
   display: block;
 }
+
+@media screen and (max-width: 650px) {
+  .sign_up{
+    max-width: 85%;
+  }
+}
 /* ------------------- sign up ends here---------------------*/
 
 /* ------------------- sign in starts here---------------------*/
@@ -231,7 +237,7 @@
 .sign_in{
   background: white;
   min-height: 400px;
-  min-width: 500px;
+  width: 500px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -341,6 +347,11 @@
   display: block;
 }
 
+@media screen and (max-width: 650px) {
+  .sign_in{
+    width: 85%;
+  }
+}
 /* ------------------- mail container---------------------*/
 
 .mail_container {
