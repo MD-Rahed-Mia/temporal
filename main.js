@@ -19,6 +19,13 @@ let signInIf = document.querySelector("#signInIfhave");
 let noAccSingUp = document.querySelector("#noAccSingUp");
 
 
+let temp_email = document.querySelector("#temp_email");
+
+let copyTempMail = document.querySelector("#copyMailBtn");
+let changeTempMail = document.querySelector("#changeTempMail");
+
+let count = 0;
+
 function signUp() {
   signUpBtn.classList.toggle("active");
   overlay.classList.toggle("active");
@@ -39,20 +46,56 @@ function displaySignin() {
 }
 
 function gotoSign() {
-  
+
   signUpBtn.classList.remove("active");
   overlay.classList.add("active");
   signInBox.classList.add("active");
 }
 
 function gotoSignUp() {
-  
+
   signInBox.classList.remove("active");
   overlay.classList.add("active");
   signUpBtn.classList.add("active");
+}
+
+function copyTempMailClick() {
+  navigator.clipboard.writeText(temp_email.value)
+    .then(() => {
+      console.log('successfull');
+    })
+    .catch((e) => {
+      console.log('failed')
+    })
+}
+
+function changeTempMailFunc() {
+  fetchData();
 }
 overlay.addEventListener("click", hideSignUp);
 register.addEventListener("click", signUp);
 signInBtn.addEventListener("click", displaySignin);
 signInIf.addEventListener("click", gotoSign);
 noAccSingUp.addEventListener("click", gotoSignUp);
+copyTempMail.addEventListener("click", copyTempMailClick);
+changeTempMail.addEventListener("click", changeTempMailFunc);
+
+
+function fetchData() {
+  fetch("temp_mail.json").then(res => res.json()
+    .then(data => {
+
+      let objectKeys = Object.keys(data);
+
+      temp_email.value = objectKeys[count];
+      count++;
+
+      if (count == (objectKeys.length -1)) {
+        count = 0;
+      }
+    }))
+
+    .catch(e => console.log(e));
+}
+
+fetchData();

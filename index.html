@@ -55,14 +55,14 @@
       <div><span class="material-symbols-outlined">
           mail
         </span>
-        <input type="email" name="email" id="email" placeholder="Enter your email">
+        <input type="email" name="email" placeholder="Enter your email">
       </div>
       <label for="password">password</label>
       <div>
         <span class="material-symbols-outlined">
           lock
         </span>
-        <input type="password" name="password" id="password" placeholder="Enter your password"><br>
+        <input type="password" name="password" placeholder="Enter your password"><br>
       </div>
       <p class="sign_pl">Must be at least 8 characters and more</p>
 
@@ -83,18 +83,18 @@
       <div><span class="material-symbols-outlined">
           mail
         </span> 
-        <input type="email" name="email" id="email" placeholder="Enter your email">
+        <input type="email" name="email" placeholder="Enter your email">
       </div>
       <label for="password">password</label>
       <div>
         <span class="material-symbols-outlined">
           lock
         </span>
-        <input type="password" name="password" id="password" placeholder="Enter your password"><br>
+        <input type="password" name="password" placeholder="Enter your password"><br>
       </div>
       <p class="sign_pl">Must be at least 8 characters and more</p>
 
-      <button type="submit">Sign Up</button>
+      <button type="submit">Sign In</button>
       </form>
 
       <div class="signall">
@@ -106,8 +106,8 @@
     <div class="mail_container">
       <h3 class="mailcontainer_heading">your own temp mail</h3>
       <div class="email_box">
-        <input type="text" name="email" id="email" placeholder="johndoe@xyz.com">
-        <span class="material-symbols-outlined">
+        <input type="text" name="email" id="temp_email" placeholder="johndoe@xyz.com">
+        <span class="material-symbols-outlined" id="copyMailBtn">
           content_copy
         </span>
       </div>
@@ -120,7 +120,7 @@
               </span></button>
             <p>refresh</p>
           </li>
-          <li><button><span class="material-symbols-outlined">
+          <li id="changeTempMail"><button><span class="material-symbols-outlined">
                 sync_alt
               </span></button>
             <p>change</p>
