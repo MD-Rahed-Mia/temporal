@@ -1,13 +1,13 @@
 let expand = document.querySelectorAll(".expand_menu");
 
-expand.forEach(element => {
+expand.forEach((element) => {
   element.addEventListener("click", function () {
     let innerText = element.querySelector("p");
     let innerImg = element.querySelector("img");
     innerImg.classList.toggle("active");
     innerText.classList.toggle("active");
-  })
-})
+  });
+});
 
 let register = document.querySelector("#register");
 let signUpBtn = document.querySelector(".sign_up");
@@ -18,60 +18,126 @@ let signInBox = document.querySelector(".sign_in");
 let signInIf = document.querySelector("#signInIfhave");
 let noAccSingUp = document.querySelector("#noAccSingUp");
 
-
 let temp_email = document.querySelector("#temp_email");
 
 let copyTempMail = document.querySelector("#copyMailBtn");
 let changeTempMail = document.querySelector("#changeTempMail");
+let refreshTimer = document.querySelector("#refreshTimer");
+let sender = document.querySelector(".sender");
+let mailMessage = document.querySelector(".mail_message");
+
+let mail1 = document.querySelectorAll(".mail1");
+
 
 let count = 0;
 
 function signUp() {
   signUpBtn.classList.toggle("active");
   overlay.classList.toggle("active");
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = "hidden";
 }
 function hideSignUp() {
   overlay.classList.remove("active");
   signUpBtn.classList.remove("active");
-  document.body.style.overflow = 'scroll';
+  document.body.style.overflow = "scroll";
   signInBox.classList.remove("active");
 }
-
 
 function displaySignin() {
   signInBox.classList.toggle("active");
   overlay.classList.toggle("active");
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = "hidden";
 }
 
 function gotoSign() {
-
   signUpBtn.classList.remove("active");
   overlay.classList.add("active");
   signInBox.classList.add("active");
 }
 
 function gotoSignUp() {
-
   signInBox.classList.remove("active");
   overlay.classList.add("active");
   signUpBtn.classList.add("active");
 }
 
 function copyTempMailClick() {
-  navigator.clipboard.writeText(temp_email.value)
+  navigator.clipboard
+    .writeText(temp_email.value)
     .then(() => {
-      console.log('successfull');
+      console.log("successfull");
     })
     .catch((e) => {
-      console.log('failed')
-    })
+      console.log("failed");
+    });
 }
 
 function changeTempMailFunc() {
   fetchData();
 }
+
+let t = 30;
+function setRefreshTime() {
+  setInterval(() => {
+    t--;
+    refreshTimer.innerHTML = t;
+    if (t == 0) {
+      t = 30;
+    }
+  }, 1000);
+}
+
+setRefreshTime();
+
+
+function setInbox(data, temp_email) {
+
+  let innerObj = data[temp_email.value];
+
+  let innerObjProp = Object.keys(data[temp_email.value]);
+
+  let arr = [];
+
+  for (const key in data[temp_email.value]) {
+
+    arr.push(key);
+
+  }
+  arr.forEach(ele => {
+
+    sender.innerHTML += `
+    <div class="mail1">
+    <img src="images/149071.png" alt="img">
+    <div>
+      <p>${ele}</p>
+    </div>
+    </div>
+    `;
+
+
+    let mail1 = document.querySelectorAll(".mail1");
+
+    mail1.forEach(elem => {
+      elem.addEventListener("click", function () {
+
+        console.log(elem);
+
+      });
+    })
+
+  })
+
+
+
+
+
+}
+
+
+mail1.forEach(ele1 => {
+  ele1.addEventListener("click", viewEmail);
+})
+
 overlay.addEventListener("click", hideSignUp);
 register.addEventListener("click", signUp);
 signInBtn.addEventListener("click", displaySignin);
@@ -80,22 +146,32 @@ noAccSingUp.addEventListener("click", gotoSignUp);
 copyTempMail.addEventListener("click", copyTempMailClick);
 changeTempMail.addEventListener("click", changeTempMailFunc);
 
-
 function fetchData() {
-  fetch("temp_mail.json").then(res => res.json()
-    .then(data => {
+  fetch("temp_mail.json")
+    .then((res) =>
+      res.json().then((data) => {
+        let objectKeys = Object.keys(data);
 
-      let objectKeys = Object.keys(data);
+        temp_email.value = objectKeys[count];
+        count++;
 
-      temp_email.value = objectKeys[count];
-      count++;
+        if (count == objectKeys.length - 1) {
+          count = 0;
+        }
 
-      if (count == (objectKeys.length -1)) {
-        count = 0;
-      }
-    }))
+        let innerObjectKeys = Object.keys(data[temp_email.value]).length;
 
-    .catch(e => console.log(e));
+        if (innerObjectKeys !== 0 && innerObjectKeys != null) {
+          setInbox(data, temp_email);
+        } else {
+          mailMessage.innerHTML = `
+            <h1>No email found</h1>
+          `;
+        }
+      })
+    )
+
+    .catch((e) => console.log(e));
 }
 
 fetchData();
