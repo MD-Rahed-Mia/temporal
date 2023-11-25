@@ -600,10 +600,12 @@
   min-height: 220px;
   border-radius: 5px;
   color: white;
+  padding: 1rem;
 }
 
 .mail_message p {
   font-weight: bold;
+  margin-top: 1.4rem;
 }
 
 @media screen and (max-width: 650px) {
