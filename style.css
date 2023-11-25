@@ -598,7 +598,6 @@
 .mail_message {
   width: 100%;
   min-height: 220px;
-  padding: 0.5rem;
   border-radius: 5px;
   color: white;
 }
@@ -606,11 +605,6 @@
 .mail_message p {
   font-weight: bold;
 }
-
-.mail_message p:last-child {
-  margin-top: 1.5rem;
-}
-
 
 @media screen and (max-width: 650px) {
   .mail_inbox {
@@ -634,10 +628,6 @@
   .mail_message p,
   span {
     font-size: 13px;
-  }
-
-  .mail_message p:last-child {
-    margin-top: 1.5rem;
   }
 
   .sender {

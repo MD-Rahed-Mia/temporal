@@ -161,33 +161,17 @@ function setInbox(data, temp_email) {
   }
 
   arr = [];
-  // for (const key in data[temp_email.value]) {
-
-  //   arr.push(key);
-
-  // }
-
 
 
   let mail1 = document.querySelectorAll(".mail_card");
-
-  // mail1.forEach(elem => {
-  //   elem.addEventListener("click", function () {
-  //     let senderId = elem.getAttribute("sender")
-  //     mailMessage.innerHTML = `
-  //     <h3>${data[temp_email.value][elem][senderId]}</h3>
-  //       ${data[temp_email.value]["mail 1"]["mail body"]}
-  //     `;
-  //   });
-  // })
 
   mail1.forEach(element => {
     element.addEventListener("click", function () {
       console.log(element.id);
       mailMessage.innerHTML = `
-        <h3>${data[temp_email.value][element.id]["sender id"]}</h3>
-        <h4>${data[temp_email.value][element.id]["subject"]}</h4>
-        <p>${data[temp_email.value][element.id]["mail body"]}</p>
+      <h3>${data[temp_email.value][element.id]["sender id"]}</h3>
+      <h4>${data[temp_email.value][element.id]["subject"]}</h4>
+      <p>${data[temp_email.value][element.id]["mail body"]}</p>
       `
     })
   })
