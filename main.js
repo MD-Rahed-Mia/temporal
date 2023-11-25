@@ -118,7 +118,20 @@ function setInbox(data, temp_email) {
 
 
   if (Object.keys(allKeys).length == 0) {
-    sender.innerHTML = 'no email found'
+    sender.innerHTML = `
+      <div class="thumb_card">
+        <div class="thumb_circle"></div>
+        <div class="thumb_rect"></div>
+      </div>
+      <div class="thumb_card">
+        <div class="thumb_circle"></div>
+        <div class="thumb_rect"></div>
+      </div>
+      <div class="thumb_card">
+        <div class="thumb_circle"></div>
+        <div class="thumb_rect"></div>
+      </div>
+    `
   }
 
   for (const key in allKeys) {
@@ -134,7 +147,7 @@ function setInbox(data, temp_email) {
 
     arr.forEach(ele => {
       sender.innerHTML += `
-      <div class="mail1">
+      <div class="mail_card">
       <img src="images/149071.png" alt="img">
       <div>
         <p id='senderId'>${ele}</p>
