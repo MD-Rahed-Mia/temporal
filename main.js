@@ -140,7 +140,6 @@ function setInbox(data, temp_email) {
     arr.push(key);
 
   }
-
   arr.forEach(ele => {
 
     sender.innerHTML = '';
@@ -148,9 +147,9 @@ function setInbox(data, temp_email) {
     arr.forEach(ele => {
       sender.innerHTML += `
       <div class="mail_card">
-      <img src="images/149071.png" alt="img">
+      <p>${data[temp_email.value][ele]["sender id"]}</p>
       <div>
-        <p id='senderId'>${ele}</p>
+        <p id='senderId'>${data[temp_email.value][ele]["subject"]}</p>
       </div>
       </div>
       `;
@@ -166,12 +165,15 @@ function setInbox(data, temp_email) {
 
 
 
-  let mail1 = document.querySelectorAll(".mail1");
+  let mail1 = document.querySelectorAll(".mail_card");
 
   mail1.forEach(elem => {
     elem.addEventListener("click", function () {
       let senderId = elem.querySelector("#senderId").textContent;
-      mailMessage.textContent = data[temp_email.value][senderId];
+      mailMessage.innerHTML = `
+        <h3>${data[temp_email.value]["mail 1"]["sender id"]}</h3>
+        ${data[temp_email.value]["mail 1"]["mail body"]}
+      `;
     });
   })
 
