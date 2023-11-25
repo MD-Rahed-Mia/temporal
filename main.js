@@ -29,7 +29,19 @@ let mailMessage = document.querySelector(".mail_message");
 let mail1 = document.querySelectorAll(".mail1");
 
 
+
+
+
 let count = 0;
+let arr = [];
+let randomNum = 0;
+
+
+function random(max) {
+  randomNum = Math.ceil(Math.random() * max);
+  return randomNum;
+}
+
 
 function signUp() {
   signUpBtn.classList.toggle("active");
@@ -73,16 +85,22 @@ function copyTempMailClick() {
 }
 
 function changeTempMailFunc() {
+  random(8);
+
   fetchData();
 }
 
-let t = 30;
+let t = 10;
 function setRefreshTime() {
   setInterval(() => {
     t--;
     refreshTimer.innerHTML = t;
     if (t == 0) {
-      t = 30;
+      t = 10;
+      let ld = JSON.parse(localStorage.getItem("df"));
+
+      setInbox(ld, temp_email.value);
+
     }
   }, 1000);
 }
@@ -92,42 +110,49 @@ setRefreshTime();
 
 function setInbox(data, temp_email) {
 
-  let innerObj = data[temp_email.value];
 
-  let innerObjProp = Object.keys(data[temp_email.value]);
+  let allKeys = data[temp_email.value];
 
-  let arr = [];
+  for (const key in allKeys) {
 
-  for (const key in data[temp_email.value]) {
 
     arr.push(key);
 
   }
+
   arr.forEach(ele => {
 
-    sender.innerHTML += `
-    <div class="mail1">
-    <img src="images/149071.png" alt="img">
-    <div>
-      <p>${ele}</p>
-    </div>
-    </div>
-    `;
+    sender.innerHTML = '';
 
-
-    let mail1 = document.querySelectorAll(".mail1");
-
-    mail1.forEach(elem => {
-      elem.addEventListener("click", function () {
-
-        console.log(elem);
-
-      });
+    arr.forEach(ele => {
+      sender.innerHTML += `
+      <div class="mail1">
+      <img src="images/149071.png" alt="img">
+      <div>
+        <p id='senderId'>${ele}</p>
+      </div>
+      </div>
+      `;
     })
-
   })
 
+  arr = [];
+  // for (const key in data[temp_email.value]) {
 
+  //   arr.push(key);
+
+  // }
+
+
+
+  let mail1 = document.querySelectorAll(".mail1");
+
+  mail1.forEach(elem => {
+    elem.addEventListener("click", function () {
+      let senderId = elem.querySelector("#senderId").textContent;
+      mailMessage.textContent = data[temp_email.value][senderId];
+    });
+  })
 
 
 
@@ -146,32 +171,50 @@ noAccSingUp.addEventListener("click", gotoSignUp);
 copyTempMail.addEventListener("click", copyTempMailClick);
 changeTempMail.addEventListener("click", changeTempMailFunc);
 
+
+
 function fetchData() {
   fetch("temp_mail.json")
     .then((res) =>
       res.json().then((data) => {
         let objectKeys = Object.keys(data);
 
-        temp_email.value = objectKeys[count];
-        count++;
+        let m = objectKeys.length - 1;
 
-        if (count == objectKeys.length - 1) {
-          count = 0;
+        let n = random(m);
+
+        console.log(n);
+
+        let mail = [];
+
+        for (const key in data) {
+          mail.push(key);
         }
 
-        let innerObjectKeys = Object.keys(data[temp_email.value]).length;
+        console.log(data);
+        temp_email.value = mail[n];
 
-        if (innerObjectKeys !== 0 && innerObjectKeys != null) {
-          setInbox(data, temp_email);
-        } else {
-          mailMessage.innerHTML = `
-            <h1>No email found</h1>
-          `;
-        }
+        setInbox(data, temp_email);
+        localStorage.setItem("df", JSON.stringify(data));
+
+
+        // if (count == objectKeys.length - 1) {
+        //   count = 0;
+        // }
+
+        // if (innerObjectKeys !== 0 && innerObjectKeys != null) {
+        //   setInbox(data, temp_email);
+        // } else {
+        //   mailMessage.innerHTML = `
+        //     <h1>No email found</h1>
+        //   `;
+        // }
       })
     )
 
     .catch((e) => console.log(e));
 }
 
-fetchData();
+document.addEventListener("DOMContentLoaded", function () {
+  fetchData();
+})

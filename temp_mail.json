@@ -1,8 +1,15 @@
 {
+  
+  "bill@xyz.com": {
+    "facebook": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa",
+    "google": "fal dweof  adlsa",
+    "twitter": " akda dkal ddlakd dll dksa dklsdal dweof  adlsa"
+  },
+  
   "batman@xyz.com": {
-    "email": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa",
-    "email1": "fal dweof  adlsa",
-    "email2": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa"
+    "facebook": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa",
+    "google": "fal dweof  adlsa",
+    "twitter": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa"
   },
   "ironman@xyz.com": {
     "email": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa"
@@ -14,10 +21,11 @@
     "email": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa"
   },
   "super@xyz.com": {
-    "email": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa"
+    "superman": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa"
   },
   "thanos@xyz.com": {
-    "email": "faceloremd akda dkal ddlakd dskasdaj"
+    "thanos": "faceloremd akda dkal ddlakd dskasdaj",
+    "gamura": "thanos daughter"
   },
   "doctrostrange@xyz.com": {
     "email": "faceloremd akda dkal ddlakd dll dksa dklsdal dweof  adlsa"
