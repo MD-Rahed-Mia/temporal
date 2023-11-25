@@ -28,6 +28,7 @@ let mailMessage = document.querySelector(".mail_message");
 
 let mail1 = document.querySelectorAll(".mail1");
 
+let refreshBtn = document.querySelector("#refresh");
 
 
 
@@ -110,8 +111,15 @@ setRefreshTime();
 
 function setInbox(data, temp_email) {
 
+  console.log("working");
+
 
   let allKeys = data[temp_email.value];
+
+
+  if (Object.keys(allKeys).length == 0) {
+    sender.innerHTML = 'no email found'
+  }
 
   for (const key in allKeys) {
 
@@ -163,6 +171,11 @@ mail1.forEach(ele1 => {
   ele1.addEventListener("click", viewEmail);
 })
 
+function refreshNow() {
+  let df = JSON.parse(localStorage.getItem("df"));
+  setInbox(df, temp_email.value);
+}
+
 overlay.addEventListener("click", hideSignUp);
 register.addEventListener("click", signUp);
 signInBtn.addEventListener("click", displaySignin);
@@ -170,6 +183,8 @@ signInIf.addEventListener("click", gotoSign);
 noAccSingUp.addEventListener("click", gotoSignUp);
 copyTempMail.addEventListener("click", copyTempMailClick);
 changeTempMail.addEventListener("click", changeTempMailFunc);
+
+refreshBtn.addEventListener("click", refreshNow);
 
 
 
