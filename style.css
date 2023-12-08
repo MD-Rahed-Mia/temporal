@@ -584,6 +584,21 @@
   cursor: pointer;
 }
 
+.sender_card{
+  width: 100%;
+  min-height: 50px;
+  background: white;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: pointer;
+  cursor: pointer;
+}
+
+.sender_card p:first-child{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 .sender .mail_card p {
   font-size: 0.8rem;
   font-weight: bold;
